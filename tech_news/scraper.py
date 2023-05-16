@@ -42,8 +42,6 @@ def scrape_news(html_content):
     select = Selector(text=html_content)
     url = select.css("head link[rel=canonical]::attr(href)").get()
     title = select.css(".entry-title::text").get()
-    if title is None:
-        title = select.css(".Hero_hero__title__dCXAM-title::text").get()
     title = title.strip()
     timestamp = select.css(".meta-date::text").get()
     writer = select.css(".author > a::text").get()
