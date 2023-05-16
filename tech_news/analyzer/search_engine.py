@@ -32,5 +32,8 @@ def search_by_date(date):
 
 
 # Requisito 9
-def search_by_category(category):
-    """Seu código deve vir aqui"""
+def search_by_category(category: str):
+    new = search_news({"category": category.lower().capitalize()})
+    if new:
+        return [(i["title"], i["url"]) for i in new]
+    return []
